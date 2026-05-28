@@ -1,0 +1,70 @@
+# Скомпилированный байт-код Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальные окружения (Conda, venv, pipenv)
+.venv/
+venv/
+env/
+ENV/
+.env/
+.anaconda/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Переменные окружения и секреты (пароли, API-ключи)
+.env
+.secrets
+*.env
+
+# Расширения C и библиотеки
+*.so
+
+# Распределения и пакеты (сборка проекта)
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Отчеты тестирования и покрытия (Pytest, Coverage)
+htmlcov/
+.tomlcov
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Логи работы программ
+*.log
+
+# Jupyter Notebooks (чекпоинты)
+.ipynb_checkpoints
+
+# Настройки популярных сред разработки (VS Code, PyCharm)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
