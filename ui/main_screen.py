@@ -3,6 +3,17 @@ from ui.upload_excel_screen import UploadExcelScreen
 from ui.select_analysis_screen import SelectAnalysisScreen
 from ui.settings_screen import SettingsScreen
 from ui.yandex_config_screen import YandexConfigScreen
+from ui.survey_config_screen import SurveyConfigScreen
+import os
+import sys
+
+def resource_path(relative_path):
+    """ Получает абсолютный путь к ресурсам (для разработки и для PyInstaller) """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 
 class MainScreen(ctk.CTk):
@@ -15,14 +26,17 @@ class MainScreen(ctk.CTk):
         self.geometry("1000x650")
         self.minsize(900, 550)
 
-        # Конфигурация главной сетки окна (столбец 0 — сайдбар, столбец 1 — контент)
+        try:
+            icon_file = resource_path("icon.ico")
+            self.iconbitmap(icon_file)
+        except Exception as e:
+            print(f"Не удалось загрузить иконку окна внутри MainScreen: {e}")
+
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        # Создаем боковую панель меню (Sidebar) в column=0
         self._create_sidebar()
 
-        # Контейнер для экранов справа в column=1
         self.container = ctk.CTkFrame(self, fg_color="transparent")
         self.container.grid(row=0, column=1, sticky="nsew", padx=25, pady=25)
         self.container.grid_columnconfigure(0, weight=1)
@@ -30,7 +44,7 @@ class MainScreen(ctk.CTk):
 
         self.frames = {}
         
-        for ScreenClass in [UploadExcelScreen, SelectAnalysisScreen, SettingsScreen, YandexConfigScreen]:
+        for ScreenClass in [UploadExcelScreen, SelectAnalysisScreen, SettingsScreen, YandexConfigScreen, SurveyConfigScreen]:
             screen_name = ScreenClass.__name__
             frame = ScreenClass(master=self.container, settings_manager=self.settings_manager)
             self.frames[screen_name] = frame
@@ -81,6 +95,6 @@ class MainScreen(ctk.CTk):
         """Показывает экран по его имени, скрывая остальные"""
         if screen_name in self.frames:
             frame = self.frames[screen_name]
-            frame.tkraise()  # Поднимаем нужный слой наверх внутри контейнера
+            frame.tkraise()
         else:
             print(f"Ошибка: Экран '{screen_name}' не найден в зарегистрированных фреймах.")

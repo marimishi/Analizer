@@ -54,8 +54,6 @@ class SelectAnalysisScreen(ctk.CTkFrame):
             text="Выбрать",
             width=120,
             height=35,
-            fg_color="#555555",
-            hover_color="#444444",
             font=ctk.CTkFont(size=13, weight="bold"),
             command=self.choose_survey
         )
@@ -76,4 +74,11 @@ class SelectAnalysisScreen(ctk.CTkFrame):
             main_screen.show_screen("YandexConfigScreen")
 
     def choose_survey(self):
-        print("Выбран Survey. На данный момент функция находится в разработке.")
+        main_screen = self.master
+        while hasattr(main_screen, "master") and main_screen.master is not None:
+            main_screen = main_screen.master
+            
+        if hasattr(main_screen, "frames") and "SurveyConfigScreen" in main_screen.frames:
+            config_screen = main_screen.frames["SurveyConfigScreen"]
+            config_screen.load_file_structure(self.excel_file_path)
+            main_screen.show_screen("SurveyConfigScreen")

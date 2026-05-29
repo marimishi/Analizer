@@ -13,33 +13,33 @@ class UploadExcelScreen(ctk.CTkFrame):
 
         self.title_label = ctk.CTkLabel(
             self, 
-            text="Анализ Excel", 
-            font=ctk.CTkFont(family="Arial", size=22, weight="bold")
+            text="Анализ Excel. Для полной версии дайте 50 рублей.", 
+            font=ctk.CTkFont(family="Arial", size=20, weight="bold")
         )
-        self.title_label.grid(row=0, column=0, pady=(10, 20), sticky="w", padx=10)
+        self.title_label.grid(row=0, column=0, sticky="w", pady=(0, 15), padx=5)
 
         self.info_card = ctk.CTkFrame(self, corner_radius=12)
-        self.info_card.grid(row=1, column=0, sticky="ew", pady=10, padx=10)
+        self.info_card.grid(row=1, column=0, sticky="ew", pady=10, padx=5)
         self.info_card.grid_columnconfigure(0, weight=1)
-
 
         self.info_label = ctk.CTkLabel(
             self.info_card, 
-            text="Загрузите Excel-файл выгрузки ответов.\nПриложение автоматически обработает структуру данных\nи подготовит аналитическую презентацию.",
+            text="Загрузите Excel-файл выгрузки ответов Яндекс.Форм. Приложение автоматически обработает структуру данных и подготовит аналитическую презентацию.",
             font=ctk.CTkFont(size=14),
-            justify="center"
+            justify="left",
+            wraplength=600
         )
-        self.info_label.grid(row=1, column=0, padx=30, pady=(5, 20), sticky="ew")
+        self.info_label.grid(row=0, column=0, padx=20, pady=20, sticky="w")
 
         self.btn_action = ctk.CTkButton(
             self, 
-            text="Прикрепить файл Excel", 
-            height=48, 
-            width=300,
-            font=ctk.CTkFont(size=15, weight="bold"),
+            text="Давай мне Excel", 
+            height=45, 
+            width=400,
+            font=ctk.CTkFont(size=14, weight="bold"),
             command=self.start_analysis
         )
-        self.btn_action.grid(row=2, column=0, pady=25, sticky="n")
+        self.btn_action.grid(row=2, column=0, pady=20, sticky="n")
         
         self.status_label = ctk.CTkLabel(
             self, 

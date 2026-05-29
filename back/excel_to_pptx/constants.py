@@ -48,3 +48,12 @@ class Constants:
     FONT_SIZE_TAG = Pt(16)
     FONT_SIZE_MAIN = Pt(36)
     FONT_SIZE_SUB = Pt(20)
+    
+    SURVEY_COLORS = [
+    RGBColor(23, 87, 87),    # '#175757'
+    RGBColor(61, 158, 118),  # '#3d9e76'
+    RGBColor(184, 205, 171), # '#b8cdab'
+    RGBColor(251, 242, 196), # '#fbf2c4'
+    RGBColor(229, 193, 133), # '#e5c185'
+    RGBColor(199, 82, 42)    # '#c7522a'
+]
