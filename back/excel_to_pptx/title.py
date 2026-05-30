@@ -1,6 +1,5 @@
 from pptx import Presentation
 from pptx.util import Inches, Pt
-from pptx.enum.text import PP_ALIGN
 from back.excel_to_pptx.constants import Constants
 
 def create_title_slide(prs: Presentation, title_text: str, layout):

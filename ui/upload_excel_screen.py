@@ -13,7 +13,7 @@ class UploadExcelScreen(ctk.CTkFrame):
 
         self.title_label = ctk.CTkLabel(
             self, 
-            text="Анализ Excel. Для полной версии дайте 50 рублей.", 
+            text="Анализ Excel", 
             font=ctk.CTkFont(family="Arial", size=20, weight="bold")
         )
         self.title_label.grid(row=0, column=0, sticky="w", pady=(0, 15), padx=5)
@@ -33,7 +33,7 @@ class UploadExcelScreen(ctk.CTkFrame):
 
         self.btn_action = ctk.CTkButton(
             self, 
-            text="Давай мне Excel", 
+            text="Прикрепить Excel", 
             height=45, 
             width=400,
             font=ctk.CTkFont(size=14, weight="bold"),

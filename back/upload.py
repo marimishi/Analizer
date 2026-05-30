@@ -14,7 +14,6 @@ class Upload:
 
 
     def excel(self):
-        print("excel")
         file_path = filedialog.askopenfilename(
             title="Выберите файл Excel",
             filetypes=[("Excel Files", "*.xlsx *.xls")]
